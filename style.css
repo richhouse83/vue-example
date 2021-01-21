@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+}
+body {
+  background-color: seashell;
+}
+.navbar {
+  height: 2.5rem;
+  font-size: 1.2rem;
+  color: seashell;
+  background-color: slategray;
+}
