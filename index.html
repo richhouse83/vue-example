@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Vue from You</title>
+        <title>ask.Teacher</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@0;1&family=Lato:ital,wght@0,300;1,300&display=swap"
+            rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="scripts/app.js" defer></script>
         <link rel="stylesheet" type="text/css" href="style.css" />
@@ -9,13 +12,18 @@
     <body>
         <div id="app">
             <div class='navbar'>
-                <h2>{{title}}</h2>
+                <h2 class="title">{{title}}</h2>
             </div>
-            <div>
-                <button v-on:click="toggleTeacherMode">Toggle Teacher</button>
+            <div class="toggle-switch">
+                <h5>Teacher Mode</h5>
+                <label class="switch">
+                    <input type="checkbox" v-on:click="toggleTeacherMode">
+                    <span class="slider"></span>
+                </label>
             </div>
-            <div class="question">
-                <input type="text" placeholder="Add your Question here" name="new-question" v-model="newQuestion" />
+            <div class="question-container">
+                <input placeholder="Name" v-model='name' />
+                <textarea placeholder="Add your Question here" name="new-question" v-model="newQuestion" rows="5" cols="30"></textarea>
                 <button v-on:click="addQuestion">Submit</button>
             </div>
             <div class="asked-questions">
