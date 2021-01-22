@@ -76,6 +76,8 @@ p {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
+  opacity: 0.7;
+  box-shadow: 0 0 10px slategray;
 }
 
 .slider:before {
@@ -89,14 +91,17 @@ p {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
+  box-shadow: 0 0 10px slategray;
 }
 
 input:checked + .slider {
   background-color: #74ebd5;
+  box-shadow: 0 0 5px slategray;
 }
 
 input:focus + .slider {
   box-shadow: 0 0 1px #74ebd5;
+  box-shadow: 0 0 5px slategray;
 }
 
 input:checked + .slider:before {
@@ -112,7 +117,9 @@ input:checked + .slider:before {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(255, 245, 238, 0.2);
+  box-shadow: 0 0 10px slategrey, inset 0 0 300px rgb(112, 128, 144, 0.1);
 }
 input,
 button {
@@ -132,6 +139,7 @@ ul {
 }
 
 li {
+  font-size: 2rem;
   display: grid;
   grid-template-columns: 1fr 4fr 2fr;
   grid-template-rows: 50px;
@@ -141,8 +149,6 @@ li {
     "null answered answered";
   text-align: left;
   align-items: center;
-
-  grid-gap: 3px;
 }
 
 .name {
@@ -152,7 +158,7 @@ li {
   border-top: solid slategrey 1px;
 }
 .name:hover {
-  color: rgb(177, 194, 211);
+  color: rgb(93, 144, 196);
 }
 .asked {
   grid-area: asked;
@@ -160,7 +166,7 @@ li {
   border-top: solid slategrey 1px;
 }
 .asked:hover {
-  color: rgb(177, 194, 211);
+  color: rgb(93, 144, 196);
 }
 .answered {
   grid-area: answered;
@@ -182,9 +188,43 @@ textarea {
 
 .asked-questions {
   padding-top: 20px;
-  border-top: slategray solid 1px;
 }
 
 #app {
   width: 100%;
+}
+@media only screen and (max-width: 650px), (max-device-width: 650px) {
+  html {
+    font-size: 32px;
+  }
+
+  .question-container {
+    width: 95%;
+    height: 400px;
+  }
+
+  li {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "name"
+      "asked"
+      "teacher-replied"
+      "reply"
+      "answered";
+  }
+  .asked {
+    border-top: transparent;
+  }
+
+  .slider::before {
+    height: 32px;
+    width: 32px;
+    left: 6px;
+    bottom: 6px;
+  }
+  .switch {
+    height: 44px;
+    width: 75px;
+  }
 }
