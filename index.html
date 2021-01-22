@@ -27,8 +27,9 @@
                 <button v-on:click="addQuestion">Submit</button>
             </div>
             <div class="asked-questions">
+                    <teacher-mode v-bind:visible="teacher"></teacher-mode>
                 <ul>
-                    <question-list v-for="item in questions" v-bind:question="item" v:bind:key="item.id" ></question-list>
+                    <question-list v-for="item in questions" v-bind:question="item" v-bind:key="item.id" v-on:toggle-highlight="toggle" ></question-list>
                 </ul>
             </div>
         </div>
